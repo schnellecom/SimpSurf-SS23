@@ -12,21 +12,30 @@ octPrintRecord := SetVertexCoordinates3D(oct, octPositions, rec());
 DrawSurfaceToJavaScript(oct, "octahedron.html", octPrintRecord);
 
 nOneFaces:=function(n)
-	local i, vertices, edges, faces, verticesOfEdges, edgesOfFaces, surface;
+	local i, vertices, edges, faces, verticesOfEdges, edgesOfFaces, surface, surfacePositions, surfacePrintRecord;
 	vertices := n*3;
 	edges := n*3;
 	faces := n;
 
 	verticesOfEdges := [];
 	edgesOfFaces := [];
+	surfacePositions := [];
 	for i in [0..n-1] do
 		Add(verticesOfEdges, [3*i+1,3*i+2]);
 		Add(verticesOfEdges, [3*i+2,3*i+3]);
 		Add(verticesOfEdges, [3*i+3,3*i+1]);
 
 		Add(edgesOfFaces, [3*i+1,3*i+2,3*i+3]);
+
+		Add(surfacePositions, [1,0,i]);
+		Add(surfacePositions, [0,1,i]);
+		Add(surfacePositions, [1,1,i]);
 	od;
 
 	surface := SimplicialSurfaceByDownwardIncidence(vertices, edges, faces, verticesOfEdges, edgesOfFaces);
+
+	surfacePrintRecord := SetVertexCoordinates3D(surface, surfacePositions, rec());
+	DrawSurfaceToJavaScript(surface, "nOneFaces.html", surfacePrintRecord);
+
 	return surface;
 end;
