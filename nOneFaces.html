@@ -84,6 +84,22 @@
  	 	 	 	0.,1.,2.,
 	 	 	 	1.,1.,2.,
 
+	 	 	 	1.,0.,3.,
+ 	 	 	 	0.,1.,3.,
+	 	 	 	1.,1.,3.,
+
+	 	 	 	1.,0.,4.,
+ 	 	 	 	0.,1.,4.,
+	 	 	 	1.,1.,4.,
+
+	 	 	 	1.,0.,5.,
+ 	 	 	 	0.,1.,5.,
+	 	 	 	1.,1.,5.,
+
+	 	 	 	1.,0.,6.,
+ 	 	 	 	0.,1.,6.,
+	 	 	 	1.,1.,6.,
+
 	 	 	 	] ); 
 
 	 	 	geometry1.setAttribute( 'position', new THREE.BufferAttribute( vertices1, 3 ) );
@@ -133,6 +149,42 @@
  
 	 	 	1.,0.,2.,
  	 	 	1.,1.,2.,
+ 
+	 	 	1.,0.,3.,
+ 	 	 	0.,1.,3.,
+ 
+	 	 	0.,1.,3.,
+ 	 	 	1.,1.,3.,
+ 
+	 	 	1.,0.,3.,
+ 	 	 	1.,1.,3.,
+ 
+	 	 	1.,0.,4.,
+ 	 	 	0.,1.,4.,
+ 
+	 	 	0.,1.,4.,
+ 	 	 	1.,1.,4.,
+ 
+	 	 	1.,0.,4.,
+ 	 	 	1.,1.,4.,
+ 
+	 	 	1.,0.,5.,
+ 	 	 	0.,1.,5.,
+ 
+	 	 	0.,1.,5.,
+ 	 	 	1.,1.,5.,
+ 
+	 	 	1.,0.,5.,
+ 	 	 	1.,1.,5.,
+ 
+	 	 	1.,0.,6.,
+ 	 	 	0.,1.,6.,
+ 
+	 	 	0.,1.,6.,
+ 	 	 	1.,1.,6.,
+ 
+	 	 	1.,0.,6.,
+ 	 	 	1.,1.,6.,
  
 	 	 	]);
             const edgeGeometry1 = new THREE.BufferGeometry();
@@ -268,6 +320,174 @@
             const vertexLabel9 = new CSS2DObject( lableDiv9 );
             vertexLabel9.position.set(1.,1.,2.,);
             sphereRoot.add( vertexLabel9 );
+
+            const sphereMaterial10 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere10 = new THREE.Mesh( sphereGeometry, sphereMaterial10 );
+	 	 	sphereRoot.add(sphere10);
+	 	 	sphere10.position.set(1.,0.,3.,);
+
+            const lableDiv10 = document.createElement( 'div' );
+            lableDiv10.className = 'label';
+            lableDiv10.textContent = '10';
+            lableDiv10.style.marginTop = '-1em';
+
+            const vertexLabel10 = new CSS2DObject( lableDiv10 );
+            vertexLabel10.position.set(1.,0.,3.,);
+            sphereRoot.add( vertexLabel10 );
+
+            const sphereMaterial11 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere11 = new THREE.Mesh( sphereGeometry, sphereMaterial11 );
+	 	 	sphereRoot.add(sphere11);
+	 	 	sphere11.position.set(0.,1.,3.,);
+
+            const lableDiv11 = document.createElement( 'div' );
+            lableDiv11.className = 'label';
+            lableDiv11.textContent = '11';
+            lableDiv11.style.marginTop = '-1em';
+
+            const vertexLabel11 = new CSS2DObject( lableDiv11 );
+            vertexLabel11.position.set(0.,1.,3.,);
+            sphereRoot.add( vertexLabel11 );
+
+            const sphereMaterial12 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere12 = new THREE.Mesh( sphereGeometry, sphereMaterial12 );
+	 	 	sphereRoot.add(sphere12);
+	 	 	sphere12.position.set(1.,1.,3.,);
+
+            const lableDiv12 = document.createElement( 'div' );
+            lableDiv12.className = 'label';
+            lableDiv12.textContent = '12';
+            lableDiv12.style.marginTop = '-1em';
+
+            const vertexLabel12 = new CSS2DObject( lableDiv12 );
+            vertexLabel12.position.set(1.,1.,3.,);
+            sphereRoot.add( vertexLabel12 );
+
+            const sphereMaterial13 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere13 = new THREE.Mesh( sphereGeometry, sphereMaterial13 );
+	 	 	sphereRoot.add(sphere13);
+	 	 	sphere13.position.set(1.,0.,4.,);
+
+            const lableDiv13 = document.createElement( 'div' );
+            lableDiv13.className = 'label';
+            lableDiv13.textContent = '13';
+            lableDiv13.style.marginTop = '-1em';
+
+            const vertexLabel13 = new CSS2DObject( lableDiv13 );
+            vertexLabel13.position.set(1.,0.,4.,);
+            sphereRoot.add( vertexLabel13 );
+
+            const sphereMaterial14 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere14 = new THREE.Mesh( sphereGeometry, sphereMaterial14 );
+	 	 	sphereRoot.add(sphere14);
+	 	 	sphere14.position.set(0.,1.,4.,);
+
+            const lableDiv14 = document.createElement( 'div' );
+            lableDiv14.className = 'label';
+            lableDiv14.textContent = '14';
+            lableDiv14.style.marginTop = '-1em';
+
+            const vertexLabel14 = new CSS2DObject( lableDiv14 );
+            vertexLabel14.position.set(0.,1.,4.,);
+            sphereRoot.add( vertexLabel14 );
+
+            const sphereMaterial15 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere15 = new THREE.Mesh( sphereGeometry, sphereMaterial15 );
+	 	 	sphereRoot.add(sphere15);
+	 	 	sphere15.position.set(1.,1.,4.,);
+
+            const lableDiv15 = document.createElement( 'div' );
+            lableDiv15.className = 'label';
+            lableDiv15.textContent = '15';
+            lableDiv15.style.marginTop = '-1em';
+
+            const vertexLabel15 = new CSS2DObject( lableDiv15 );
+            vertexLabel15.position.set(1.,1.,4.,);
+            sphereRoot.add( vertexLabel15 );
+
+            const sphereMaterial16 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere16 = new THREE.Mesh( sphereGeometry, sphereMaterial16 );
+	 	 	sphereRoot.add(sphere16);
+	 	 	sphere16.position.set(1.,0.,5.,);
+
+            const lableDiv16 = document.createElement( 'div' );
+            lableDiv16.className = 'label';
+            lableDiv16.textContent = '16';
+            lableDiv16.style.marginTop = '-1em';
+
+            const vertexLabel16 = new CSS2DObject( lableDiv16 );
+            vertexLabel16.position.set(1.,0.,5.,);
+            sphereRoot.add( vertexLabel16 );
+
+            const sphereMaterial17 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere17 = new THREE.Mesh( sphereGeometry, sphereMaterial17 );
+	 	 	sphereRoot.add(sphere17);
+	 	 	sphere17.position.set(0.,1.,5.,);
+
+            const lableDiv17 = document.createElement( 'div' );
+            lableDiv17.className = 'label';
+            lableDiv17.textContent = '17';
+            lableDiv17.style.marginTop = '-1em';
+
+            const vertexLabel17 = new CSS2DObject( lableDiv17 );
+            vertexLabel17.position.set(0.,1.,5.,);
+            sphereRoot.add( vertexLabel17 );
+
+            const sphereMaterial18 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere18 = new THREE.Mesh( sphereGeometry, sphereMaterial18 );
+	 	 	sphereRoot.add(sphere18);
+	 	 	sphere18.position.set(1.,1.,5.,);
+
+            const lableDiv18 = document.createElement( 'div' );
+            lableDiv18.className = 'label';
+            lableDiv18.textContent = '18';
+            lableDiv18.style.marginTop = '-1em';
+
+            const vertexLabel18 = new CSS2DObject( lableDiv18 );
+            vertexLabel18.position.set(1.,1.,5.,);
+            sphereRoot.add( vertexLabel18 );
+
+            const sphereMaterial19 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere19 = new THREE.Mesh( sphereGeometry, sphereMaterial19 );
+	 	 	sphereRoot.add(sphere19);
+	 	 	sphere19.position.set(1.,0.,6.,);
+
+            const lableDiv19 = document.createElement( 'div' );
+            lableDiv19.className = 'label';
+            lableDiv19.textContent = '19';
+            lableDiv19.style.marginTop = '-1em';
+
+            const vertexLabel19 = new CSS2DObject( lableDiv19 );
+            vertexLabel19.position.set(1.,0.,6.,);
+            sphereRoot.add( vertexLabel19 );
+
+            const sphereMaterial20 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere20 = new THREE.Mesh( sphereGeometry, sphereMaterial20 );
+	 	 	sphereRoot.add(sphere20);
+	 	 	sphere20.position.set(0.,1.,6.,);
+
+            const lableDiv20 = document.createElement( 'div' );
+            lableDiv20.className = 'label';
+            lableDiv20.textContent = '20';
+            lableDiv20.style.marginTop = '-1em';
+
+            const vertexLabel20 = new CSS2DObject( lableDiv20 );
+            vertexLabel20.position.set(0.,1.,6.,);
+            sphereRoot.add( vertexLabel20 );
+
+            const sphereMaterial21 = new THREE.MeshBasicMaterial( { color: 0xF58137 } );
+	 	 	const sphere21 = new THREE.Mesh( sphereGeometry, sphereMaterial21 );
+	 	 	sphereRoot.add(sphere21);
+	 	 	sphere21.position.set(1.,1.,6.,);
+
+            const lableDiv21 = document.createElement( 'div' );
+            lableDiv21.className = 'label';
+            lableDiv21.textContent = '21';
+            lableDiv21.style.marginTop = '-1em';
+
+            const vertexLabel21 = new CSS2DObject( lableDiv21 );
+            vertexLabel21.position.set(1.,1.,6.,);
+            sphereRoot.add( vertexLabel21 );
 
             
 			camera.position.z = -5;
