@@ -37,6 +37,7 @@ SurfaceFromUmbrella:=function(umbrellaDescriptor)
 		Append(faces, ListFromCycle(umbrella));
 	od;
 
+	faces := DuplicateFreeList(faces);
 	faces := Length(faces);
 	edges := (3/2)*faces;
 
@@ -46,13 +47,11 @@ SurfaceFromUmbrella:=function(umbrellaDescriptor)
 
 	for edge in edgeQueue do
 		for edgeT in edgeQueue do
-			if edge[2] = edgeT[2] and not edge[1] = edgeT[1] then
+			if edge[2] = edgeT[2] and not edge[1] = edgeT[1] and Position(verticesOfEdges, (edge[1], edgeT[1])) = fail then
 				Add(verticesOfEdges, (edge[1], edgeT[1]) );
-#				Print("a ",edge, ", ",edgeT);
-#				Print(" b ",ListFromCycle(edge[2]),"\n");
 
-				Add(edgesOfFaces[ edge[1] ], Position(verticesOfEdges, edge[1] ));
-				Add(edgesOfFaces[ edgeT[1] ], Position(verticesOfEdges, edge[1] ) );
+				Add(edgesOfFaces[ ListFromCycle(edge[2])[1] ], Position(verticesOfEdges, (edge[1], edgeT[1]) ));
+				Add(edgesOfFaces[ ListFromCycle(edge[2])[2] ], Position(verticesOfEdges, (edge[1], edgeT[1]) ) );
 			fi;
 		od;
 	od;
@@ -60,8 +59,8 @@ SurfaceFromUmbrella:=function(umbrellaDescriptor)
 	Apply(verticesOfEdges, v -> ListFromCycle(v));
 	Apply(edgesOfFaces, l -> DuplicateFreeList(l));
 
+	Print("v: ",vertices, " e: ",edges," f: ",faces,"\n");
+
 	surface := SimplicialSurfaceByDownwardIncidence(vertices, edges, faces, verticesOfEdges, edgesOfFaces);
 	return surface;
-
-	#return [vertices, edges, faces, verticesOfEdges, edgesOfFaces];
 end;
