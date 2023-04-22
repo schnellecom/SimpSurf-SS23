@@ -17,7 +17,7 @@ end;
 
 SurfaceFromUmbrella:=function(umbrellaDescriptor)
 	local i, vertices, edges, faces, verticesOfEdges, edgesOfFaces, surface, umbrella, edgeQueue,
-	edge, j, edgeT;
+	edge, j, edgeT, testSurface;
 
 	edgeQueue := [];
 	verticesOfEdges := [];
@@ -41,7 +41,7 @@ SurfaceFromUmbrella:=function(umbrellaDescriptor)
 	faces := Length(faces);
 	edges := (3/2)*faces;
 
-	for i in [1..Length(umbrellaDescriptor)] do
+	for i in [1..faces] do
 		Add(edgesOfFaces, []);
 	od;
 
@@ -59,8 +59,13 @@ SurfaceFromUmbrella:=function(umbrellaDescriptor)
 	Apply(verticesOfEdges, v -> ListFromCycle(v));
 	Apply(edgesOfFaces, l -> DuplicateFreeList(l));
 
-	Print("v: ",vertices, " e: ",edges," f: ",faces,"\n");
-
 	surface := SimplicialSurfaceByDownwardIncidence(vertices, edges, faces, verticesOfEdges, edgesOfFaces);
+
+	for testSurface in AllSimplicialSurfaces(NumberOfVertices, vertices, NumberOfEdges, edges, NumberOfFaces, faces) do
+		if(IsIsomorphic(surface, testSurface)) then
+			Print("Is iso to a surface in the library \n");
+		fi;
+	od;
+
 	return surface;
 end;
