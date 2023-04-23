@@ -69,3 +69,7 @@ SurfaceFromUmbrella:=function(umbrellaDescriptor)
 
 	return surface;
 end;
+
+ex :=  [(1, 5, 4, 3, 2),(1, 6, 11, 7, 2),(1, 6, 15, 10, 5),(2, 7, 12, 8, 3),(3, 8, 13, 9, 4),(4, 9, 14, 10, 5),(6, 15, 20, 16, 11),(7, 12, 17, 16, 11),(8, 13, 18, 17, 12),(9, 14, 19, 18, 13),(10, 14, 19, 20, 15),(16, 17, 18, 19, 20)];
+
+surfaceFromEx := SurfaceFromUmbrella(ex);
