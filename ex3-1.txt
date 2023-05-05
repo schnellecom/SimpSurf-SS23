@@ -1,0 +1,5 @@
+LoadPackage("SimplicialSurface");;
+
+AllSimplexRings:=function(n)
+
+end;
