@@ -1,5 +1,6 @@
 LoadPackage("SimplicialSurface");;
 
+#can apparently also be done with Reversed(list);
 ReverseList:=function(list)
 	local i;
 	res := [];
@@ -28,6 +29,22 @@ AllSimplexRings:=function(n)
 	partitions := Partitions(n);
 	dyclets := [];
 	for part in partitions do
-		cyclePartitions := [];
+		for sigma in SymmetricGroup(n) do
+			Add(dyclets, Permuted(part, sigma));
+		od;
+	od;
+	for d in dyclets do
+		pos := Position(dyclets, d);
+		for e in dyclets do
+			if ReverseList(d) = e then
+				Remove(dyclets, pos);
+			fi;
+			for i in [1..n] do
+				if InterateList(d) = e then
+					Remove(dyclets, pos);
+				fi;
+				d = InterateList(d);
+			od;
+		od;
 	od;
 end;
