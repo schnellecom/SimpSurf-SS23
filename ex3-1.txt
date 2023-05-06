@@ -14,48 +14,46 @@ end;
 
 InterateList:=function(list)
 	local i, res;
-	res := [];
-	res[1] := list[Length(list)];
-	for i in [2..Length(list)] do
-		if IsBound(list[i-1]) then
-			Add(res, list[i-1]);
-		fi;
-	od;
+	res := Permuted(list, CycleFromList([1..Length(list)]));
 	return res;
 end;
 
 AllSimplexRings:=function(n)
-	local i, partitions, dyclets, part, sigma, d, e, simplexRings, umbrellaDesc, counter, a, tmp, u, pos;
+	local i, partitions, dyclets, part, sigma, d, e, simplexRings, umbrellaDesc, counter, a, tmp, u, pos, f;
 	partitions := Partitions(n);
-#	dyclets := [];
-#	for part in partitions do
-#		for sigma in SymmetricGroup(Length(part)) do
-#			Add(dyclets, Permuted(part, sigma));
-#		od;
-#	od;
-#	Print(dyclets,"\n");
-#	for d in dyclets do
-#		pos := Position(dyclets, d);
-#		for e in dyclets do
-#			if ReverseList(d) = e then
-#				Remove(dyclets, pos);
-#			fi;
-#			for i in [1..n] do
-#				if InterateList(d) = e then
-#					Remove(dyclets, pos);
-#				fi;
-#				d := InterateList(d);
-#			od;
-#		od;
-#	od;
-#	Print(dyclets,"\n");
+	dyclets := [];
+	for part in partitions do
+		for sigma in SymmetricGroup(Length(part)) do
+			Add(dyclets, Permuted(part, sigma));
+		od;
+	od;
+	dyclets := DuplicateFreeList(dyclets);
+	for d in dyclets do
+		pos := Position(dyclets, d);
+		f := StructuralCopy(d);
+		for e in dyclets do
+			if Length(e) = Length(d) and not Position(dyclets, e) = Position(dyclets, d) then
+				if Reversed(f) = e then
+					Remove(dyclets, pos);
+					continue;
+				fi;
+				for i in [1..Length(d)] do
+					f := InterateList(f);
+					if f = e then
+						Remove(dyclets, pos);
+						continue;
+					fi;
+				od;
+			fi;
+		od;
+	od;
+	dyclets := DuplicateFreeList(dyclets);
 
 	simplexRings := [];
 	Add(simplexRings, SimplicialUmbrella(n));
 	for d in partitions do
 		#only partitions of length more than 2 are simplicial surfaces
 		if Length(d) > 2 then
-			Print("d", d, "\n");
 			umbrellaDesc := [];
 			
 			#add first and last manually
